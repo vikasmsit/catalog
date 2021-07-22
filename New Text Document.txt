@@ -1,0 +1,12 @@
+[
+{"name:"Ferrari","price":"Rs:1000","desc":"good fast car","mfd":"12-12-2020","exp":"none","image":"car.jpg"}
+,
+{"name:"apple","price":"Rs:20","desc":"sweet fruit" ,"mfd":"12-5-2020","exp":"12-12-2021","image":"apple.jpg"}
+,
+{"name:"app","price":"Rs:20","desc":"jumping game" ,"mfd":"12-5-2020","exp":"none","image":"game.jpg"}
+
+,
+
+{"name:"football","price":"Rs:200","desc":"timepass" ,"mfd":"5-5-2020","exp":"none","image":"ball.jpg"}
+
+]

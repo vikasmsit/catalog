@@ -10,6 +10,7 @@ function renderHTML(data){
 
     console.log(data)
     console.log(data.length)
+    htmlString=`<div class="row">`
     for (var i=0;i<data.length;i++){
         var image=data[i].image
 
@@ -20,7 +21,7 @@ function renderHTML(data){
         console.log(temp_img)
 
         let temp=`
-        <div class="card" style="width: 18rem;">
+        <div class="card col-md-3" style="width: 18rem;">
         <img src=${temp_img} class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Name</h5>
@@ -36,8 +37,13 @@ function renderHTML(data){
         </div>
       </div>
       `
+      if(i%4===0){
+        htmlString=htmlString+`</div>`+`<div class="row">`
+        
+      }
       htmlString=htmlString+temp
     }
+    htmlString=htmlString+`</div>`
 
     catList.insertAdjacentHTML('beforeend',htmlString)
 
@@ -46,6 +52,16 @@ console.log(JSON.parse(localStorage.getItem('prodList')))
 prodList=JSON.stringify(localStorage.getItem('prodList'))
 // Load current value of  counter
 document.addEventListener('DOMContentLoaded', () => {
+
+var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET',"https://learnwebcode.github.io/json-example/animals-1.json")
+console.log(ourRequest)
+ourRequest.onload=function(){
+  var ourData=JSON.parse(ourRequest.responseText);
+  console.log(ourData)
+}
+ourRequest.send();
+console.log(ourRequest)
 
 let prodList=JSON.parse(localStorage.getItem('prodList'))
 renderHTML(prodList)
@@ -76,5 +92,10 @@ document.querySelector('button').onclick = () => {
     //renderHTML(new_prod)
     console.log("hello "+ prodList.length)
     localStorage.setItem('prodList', JSON.stringify(prodList));
+    //var fs = require('fs')
+    //console.log(fs)
+    //fs.writeFile('catalog.json', JSON.stringify(prodList), 'utf8', callback);
+
+
 }
 });

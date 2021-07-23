@@ -56,9 +56,10 @@ function renderOrder(data){
 
   let prodList=document.querySelectorAll('.form-check-input')
   let order=""
+  var count=0
   for(var i=0;i<prodList.length;i++){
     if(prodList[i].checked){
-
+      count=count+1
       order=order+data[i].name+","
     }
     
@@ -82,14 +83,20 @@ function renderOrder(data){
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel">Order for ${name.value}</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        
+        
+          
       </div>
       <div class="modal-body">
         <form>
         
           <p>Order Details</p>
+          <div>
+            <h5>Order Count: </h5>
+            <div class="col-sm-6">
+              <p>${count}</p>
+            </div>
+          </div>
           <div>
             <h5>Order items: </h5>
             <div class="col-sm-6">
